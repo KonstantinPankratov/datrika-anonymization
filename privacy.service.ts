@@ -36,8 +36,6 @@ function hasTrafficSourceChanged(cached: VisitorSessionState, current: TrafficSo
     || (Boolean(current.utmCampaign) && cached.utmCampaign !== current.utmCampaign)
   );
 
-  // `source === 'none'` — реферера нет: сравнивать не с чем. Сюда же попадает возврат с исключённого
-  // шлюза (`EXCLUDED_REFERRER_DOMAINS` → direct), который новым привлечением не является.
   const hasReferralChanged = !isInternalNavigation
     && current.referrerSource !== 'none'
     && (cached.referrer !== current.referrerSource || cached.referrerMedium !== current.referrerMedium);
