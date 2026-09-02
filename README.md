@@ -77,6 +77,6 @@ unrelated to anonymization.
 
 ## Provenance
 
-Synced from commit `8656398e2f94d7b180c64688d43ad16ed702bdf8` on `2026-09-01`, by a GitHub Action that runs on every
+Synced from commit `622590ebff91db0265c8262c5798747bf5f2a2b9` on `2026-09-02`, by a GitHub Action that runs on every
 push to `main` touching these two files. No manual step between a code change and this
 repository updating.
