@@ -56,9 +56,9 @@ HMAC-SHA256, salted with a random value that rotates every day and never leaves 
 `privacy.service.ts` derives a `visitor_id` from three inputs: the visitor's IP address,
 truncated to the first three octets (IPv4) or first four groups (IPv6) before anything else
 happens to it, the user agent string, and the site ID. These three values are combined and run
-through HMAC-SHA256 with a secret salt. The same file also tracks session state, page count,
-entry and exit page, time engaged, all keyed by that same `visitor_id`, never by anything more
-identifying.
+through HMAC-SHA256 with a secret salt. Deriving that identifier is all this file does. Session
+state (page count, entry and exit page, time engaged) is handled elsewhere in the collector, keyed
+by that same `visitor_id` and by nothing more identifying.
 
 `privacy-salt.cache.ts` generates that salt: 16 random bytes, created fresh once a day, stored
 server-side in Redis, never written to a database or a log. A visitor_id computed today cannot
@@ -77,6 +77,6 @@ unrelated to anonymization.
 
 ## Provenance
 
-Synced from commit `622590ebff91db0265c8262c5798747bf5f2a2b9` on `2026-09-02`, by a GitHub Action that runs on every
+Synced from commit `c59b7000d5b21d4b653246e572710a1cf25e1183` on `2026-09-13`, by a GitHub Action that runs on every
 push to `main` touching these two files. No manual step between a code change and this
 repository updating.
